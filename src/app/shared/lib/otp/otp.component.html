@@ -1,0 +1,84 @@
+<div class="top-header"></div>
+
+<ng-pass-otp
+#otpElement
+(onInputChange)="otpChange($event)"
+[config]="config"
+[otpForm]="otpForm"
+class="otp-input"
+>
+
+<div
+  class="background"
+  [style.background-image]="'url(' + assetUrl + '/assets/svgs/bg.svg)'"
+>
+  <div class="content">
+    <a routerLink="/" href="/" class="branding">
+      <img
+        class="logo"
+        [src]="assetUrl + '/assets/svgs/logo_blue.svg'"
+        alt=""
+      />
+      <span class="otp-logo-text">Stanbic Bank</span>
+    </a>
+    <div class="portal">
+      <div class="portal-container">
+        <button class="back-button" (click)="backButton()">
+          <img
+            class="back-icon"
+            [src]="assetUrl + '/assets/svgs/back-icon.svg'"
+          />
+          Back
+        </button>
+        <form>
+          <div class="portal-elements">
+            <img
+              class="secure-icon"
+              [src]="assetUrl + '/assets/svgs/secure-icon.svg'"
+            />
+            <h1>Account Verification</h1>
+            <p id="security-text">
+              A security code has been sent to your specified account below
+            </p>
+            <!-- <p id="phone-text">{{ authResponse.maskedReference }}</p> -->
+            <div class="otp-container">
+              <ng-pass-otp
+                #otpElement
+                (onInputChange)="otpChange($event)"
+                [config]="config"
+                [otpForm]="otpForm"
+                class="otp-input"
+              >
+              </ng-pass-otp>
+            </div>
+            <p id="resend-text">
+              <button
+              (click)="resendOTPClick()"
+              class="resend-button"
+              >Resend OTP</button>
+            </p>
+            <section
+               style="margin-bottom: 15px; color: midnightblue"
+            >
+              OTP expired, kindly resend otp or go back and enter phone number again
+            </section>
+            <div class="timer">
+              <!-- <app-count-down-timer (timerReached)="timerReached()"
+                >app
+              </app-count-down-timer> -->
+            </div>
+            <button
+               (click)="validateOTP()"
+              class="verify-button"
+             >
+              <img
+                class="verify-icon"
+                [src]="assetUrl + '/assets/svgs/verify-code-icon.svg'"
+              />Verify Code
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

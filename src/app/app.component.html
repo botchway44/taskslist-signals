@@ -1,3 +1,11 @@
+<hr>
+<div style="display: flex;justify-content: space-between; padding: 10px; ">
+
+  <h2>Signals Test</h2>
+  <img class="lock" src="/assets/svgs/lock.svg">
+</div>
+
+<hr>
 
 <input [(ngModel)]="title" type="">
 <p>List Items Normal length Parent : {{itemSize()}}</p>
@@ -14,5 +22,6 @@
 } @error {
   Loading failed :()
 } @placeholder {
-  <img src="comments-placeholder.png">
+  <img class="lock" src="/assets/svgs/lock.svg">
 }
+
