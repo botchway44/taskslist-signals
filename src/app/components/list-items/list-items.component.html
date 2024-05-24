@@ -1,0 +1,17 @@
+<p>List Items length : {{itemsLength()}}</p>
+@for (item of items(); track $index) {
+ <app-list-item [item]="item" (delete)="removeItem($index)" />
+}
+
+<hr />
+<button (click)="reset()">Reset Normal List</button>
+
+<p>List Items length : {{itemsSignal().length}}</p>
+@for (item of itemsSignal(); track $index) {
+  <app-list-item [item]="item" (delete)="removeItemSignal($index)" />
+}
+
+<hr />
+
+
+<button (click)="resetSignal()">Reset Signal List</button>
